@@ -1,0 +1,11 @@
+.main_window{
+    border:none;
+}
+.main_window_body{
+    border:solid;
+}
+
+
+.main_window_head{
+    display:grid;
+}

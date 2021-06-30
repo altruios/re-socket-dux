@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+  overflow:none;
+  display: flex;
+  flex-flow:column nowrap;
+
+}
+body{
+     position: absolute;
+     top:1.4vh;
+  background-color: #000000;
+  overflow: hidden;
+}
