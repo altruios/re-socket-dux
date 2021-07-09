@@ -1,11 +1,19 @@
 .main_window{
     border:none;
+    height:90vh;
+    width:100vw;
 }
 .main_window_body{
     border:solid;
+    height:40vh;
+    width:100vw;
+    font-size: 4vh;
 }
 
 
 .main_window_head{
     display:grid;
+    height:20vh;
+    width:100vw;
+    font-size: 6vh;
 }

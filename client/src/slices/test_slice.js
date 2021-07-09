@@ -1,23 +1,25 @@
 import { createSlice } from '@reduxjs/toolkit';
 export const testSlice = createSlice({
     name:"test",
-    initialState:[{
-        test:0,
+    initialState:{
+        test:"has initial state",
         state2:true
-    }],
+    },
     reducers:{
         update:(state,action)=>{
             console.log("update called");
             console.log("action is:", action);
-            return action.payload;
+            state.state2=action.payload;
+            return state;
         }
     },
 });
 export const {update}=testSlice.actions;
-export const select_test= (state) =>{
-    return state.test.test;
+export const select_test = (state) => {
+     console.log("selected test", state);
+    return state.test;
 }
-export const select_state2 = (state) =>{
-     return state.test.state2;
+export const select_state2=(state)=>{
+     return state.state2;
 }
 export default testSlice.reducer;
