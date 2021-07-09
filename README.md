@@ -45,8 +45,9 @@ making a client handle
 in client/handles.js
 ```
 const handle = new Handle(string:lable,socket:socket.io/socket refference, function:redux action)
-
+```
 example:
+```
 import openSocket from "socket.io-client";
 import {update} from './slices/test_slice';
 const ENDPOINT = "http://localhost:5001";
