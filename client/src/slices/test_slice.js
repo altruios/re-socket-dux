@@ -19,7 +19,5 @@ export const select_test = (state) => {
      console.log("selected test", state);
     return state.test;
 }
-export const select_state2=(state)=>{
-     return state.state2;
-}
+
 export default testSlice.reducer;

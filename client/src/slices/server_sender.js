@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 export const server_sender = createSlice({
     name:"server_sender",
-    initialState:[],//errors stored here
+    initialState:"",//errors stored here
     reducers:{
      output:(state,action)=>{
           //built with the Handle class
