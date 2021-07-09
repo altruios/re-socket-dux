@@ -13,6 +13,15 @@ function Use_handle(){
           //handles go here
           test,
           
+          //auto listen for all handles
+          listen_all:()=>{
+               for(const p in _handles){
+                    if(_handles[p]?.type=="handle"){
+                         _handles[p].listen();
+                    }
+               }
+          },
+
           // connect dispatch
           set_dispatch:(d)=>{
                console.log("setting dispatch: should hit once!");

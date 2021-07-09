@@ -6,7 +6,7 @@ console.log("handle test scripted called");
 // handle functions
 const handle_test = (data,ref)=>{
      console.log("handle data heard", data);
-     ref.socket.emit(ref.on, {test:"success - check server console"});
+     ref.socket.emit(ref.on, {message2:"success - check server console"});
 }
 const returnObject = {
      handle_test

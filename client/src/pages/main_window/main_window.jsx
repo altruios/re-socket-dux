@@ -12,11 +12,11 @@ function Main_window(props) {
      useEffect(()=>{console.log(test_data,"yay!")},[test_data])
     return(<div className="main_window">
         <div className = "main_window_head">
-             skeleton react project(title)
-        </div>
+        re-socket-dux <br/>
+               (react-socket-redux... with nodejs)
+                       </div>
         <div className="main_window_body">                    
-               skeleton react project (body)<br/>
-               
+
                message: {test_data.message}
                <br/>
                responce:{JSON.stringify(test_data.responce)}
