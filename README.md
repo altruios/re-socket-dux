@@ -12,33 +12,29 @@ this is a skeleton of a react project - the goal of which is to be a single one 
 so this has the connecting socket server code wired in.
 (this is still untested on other machines) 
 
-
+```
 installing should be:
 git clone;
-
 then:
-
 cd server
-
 npm install
-
 cd..
-
 cd client
-
 npm install
-
+```
 
 
 starting dev:
 
 two consoles
 
-a:cd server
-
-  npm run dev
-  
-b:cd client
-
-  npm start
-
+a:
+```
+cd server
+npm run dev
+  ```
+b:
+```
+cd client
+npm start
+```
