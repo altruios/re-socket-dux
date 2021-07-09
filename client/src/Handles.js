@@ -1,4 +1,3 @@
-import {output} from "./slices/server_sender"
 import openSocket from "socket.io-client";
 import {update} from './slices/test_slice';
 const ENDPOINT = "http://localhost:5001";
@@ -7,23 +6,24 @@ const socket = openSocket(ENDPOINT, {
      transports: ['websocket'] // you need to explicitly tell it to use websockets
      }); 
 function Use_handle(){
-     const test = new Handle("test",socket,update);
+     //define handles here
+     const test = new Handle("test",socket,update);// label, ref to socket, and most important: redux action
+     
      const _handles={
+          //handles go here
           test,
           
           // connect dispatch
           set_dispatch:(d)=>{
                console.log("setting dispatch: should hit once!");
                for(const p in _handles){
-                    console.log(p, "is property?");
                     if(_handles[p]?.type=="handle"){
-                         console.log("theres a hit")
                          _handles[p].set_dispatch(d);
                     }
                }
           }
      }
-
+     //returning this object with list of handles, and function to connect dispatch to every handle
      return _handles;
 }
 
@@ -32,9 +32,9 @@ class Handle { //
 
           this.action = action;
           this.type="handle";
-          this.socket=socket;
-          this.dispatch=null;
-          this.respondsTo=respondsTo.type;
+          this.socket=socket; //socket ref
+          this.dispatch=null; //set  with the main set_dispatch in the exported object container
+          this.respondsTo=respondsTo.type; //action type of redux action
           console.log(this.respondsTo);
           this.respond=this.respond.bind(this);
        }
@@ -57,7 +57,10 @@ class Handle { //
           this.socket.on(this.action,this.respond);
           }
      }
-     send(data){this.dispatch(output([this.action,{data},this.socket]))}
+     send(data){     
+          this.socket.emit(this.action,data);
+
+     }
      set_socket(socket){
           console.log("test - setting socket in handle class");
           this.socket=socket}
