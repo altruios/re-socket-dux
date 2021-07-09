@@ -1,22 +1,20 @@
 import React,{useEffect } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import main_window from "./pages/main_window/main_window";
 import test_window from "./pages/test_window/test_window";
 import Use_handles from "./Handles.js";
+import { select_test } from "./slices/test_slice";
 //endpoinnt to server websocket io
 function App() {
      const dispatch = useDispatch();
+     const data = useSelector(select_test);
      useEffect(() => {
-
           const handles = Use_handles();
           handles.set_dispatch(dispatch);
-          console.log(handles)
-
-          console.log("use effect - now testing handles.test");
           handles.test.listen();
-          handles.test.send({foo:"foo", bar:"bar"});     
+          handles.test.send(data.message);     
 
      }, []); //this happens once
      return (

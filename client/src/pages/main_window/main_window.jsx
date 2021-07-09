@@ -15,8 +15,11 @@ function Main_window(props) {
              skeleton react project(title)
         </div>
         <div className="main_window_body">                    
-               skeleton react project (body)
-               {JSON.stringify(test_data)}
+               skeleton react project (body)<br/>
+               
+               message: {test_data.message}
+               <br/>
+               responce:{JSON.stringify(test_data.responce)}
 
 
         </div>
