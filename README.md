@@ -1,4 +1,4 @@
-# resocketdux (alpha build - not yet auto installing or fancy yet)
+# re-socket-dux (alpha build - not yet auto installing or fancy yet)
 
 how to use:
 
