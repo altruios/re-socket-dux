@@ -15,17 +15,30 @@ so this has the connecting socket server code wired in.
 
 installing should be:
 git clone;
+
 then:
+
 cd server
-npm install
-cd..
-cd client
+
 npm install
 
+cd..
+
+cd client
+
+npm install
+
+
+
 starting dev:
+
 two consoles
+
 a:cd server
+
   npm run dev
+  
 b:cd client
+
   npm start
 
