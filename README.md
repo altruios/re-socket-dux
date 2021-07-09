@@ -1,4 +1,4 @@
-# RESS: React Express Socket Skeleton (alpha build - not yet auto installing or fancy yet)
+# resocketdux (alpha build - not yet auto installing or fancy yet)
 
 how to use:
 
