@@ -9,3 +9,4 @@
 8 - branch and create an example app using this pattern
 9 - figure out a npx --options to pull from selected branch.
 10 - form various options for database setups. mysql mongo prosgres etc any requested
+11 - typescript versions
