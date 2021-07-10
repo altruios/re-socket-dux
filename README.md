@@ -114,6 +114,9 @@ make a new javascript file in the actions folder:
 const Server_handle = require("../server_handle");
 
 //define some action here: can be anything - any data being returned will be sent through to the client on the responce of the handle on the client
+
+//Server_handle takes a string name - what it listens for, and a callback - for when it hears that data.
+//any data return in the call back will be sent to the client with the same tag
 const action_test = new Server_handle("test",(data)=>{
      console.log("handle data heard", data);
      //or db call or whatever
