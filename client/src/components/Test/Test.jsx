@@ -1,4 +1,4 @@
-import React,{useEffect } from "react";
+import React from "react";
 import Use_handles from "../../Handles.js";
 const handles = Use_handles();
 
