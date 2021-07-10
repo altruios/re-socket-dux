@@ -3,6 +3,7 @@
 how to install:
 
 git clone this repo;
+
 in the root project folder
 ```
 cd server
