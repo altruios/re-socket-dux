@@ -1,0 +1,11 @@
+0 - security / bug related fixes
+1 - install should be simple 1 step: npx re-socket-dux "folder/project name"
+2 - improve and iterate on socket.io handeling - add concept of room/groups.
+3 - add testing - unit. integration, edge. etc.
+4 - all build/dev testing controls in a single command each instead of pairs of commands on the client and the server.
+5 -  improve basic css / no opinion.
+6 -  impove docs (add pictures, document functions better)
+7 - impove eniovment setup - development.env and production.sample.env should be made and commented out sample inside
+8 - branch and create an example app using this pattern
+9 - figure out a npx --options to pull from selected branch.
+10 - form various options for database setups. mysql mongo prosgres etc any requested
