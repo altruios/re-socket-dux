@@ -62,7 +62,6 @@ class Handle { //
           console.log("listen called");
           if(this.socket){
           console.log("this is listening now", this);
-          const that = this;
           this.socket.on(this.action,this.respond);
           }
      }

@@ -106,27 +106,25 @@ function App() {
 
 making a server handle
 
-still cleaning up the pattern - but for now it is:
-
+make a new javascript file in the actions folder: 
 ```
-//again - this will get better:
-const HANDELER=(on,message,handle,socket)=>({on,message,handle,socket});
 
-io.on("connection", (socket) => {
-     const test = HANDELER(
-       "test", //label - what happens on
-       {message:"check server console"}, // can use no param queries here
-       Handles.handle_test, // handle that controls a callback (in this case)
-       socket);
+//require the server_handler.
+const Server_handle = require("../server_handle");
 
-    // emit data with no call back
-    socket.emit(test.on, test.message);
-    
-    //respond to data comming in
-    socket.on(test.on,(data=>test.handle(data,test)));
-    });
+//define some action here: can be anything - any data being returned wil be sent through to the client on the responce of the handle on the client
+const action_test = new Server_handle("test",(data)=>{
+     console.log("handle data heard", data);
+     //or db call or whatever
+     const make_some_data = {
+          message2:"succes: check server console"
+     }
+     return make_some_data;
+})
 
-//again - the very next step is to make the server handles cleaner and more uniform with client's.
+//export the action
+module.exports = action_test;
+
 ```
 
 
