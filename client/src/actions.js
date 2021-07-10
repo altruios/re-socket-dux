@@ -7,10 +7,9 @@ const socket = openSocket(ENDPOINT, {
      transports: ['websocket'] // you need to explicitly tell it to use websockets
      }); 
 
-//all in one
 const Client_handle = require("./Client_handle");
 
-
+//define actions here - connect server listening strings - to redux actions
 const test = new Client_handle("test",socket,update);
 const test2 = new Client_handle("test2",socket,update2);
 
