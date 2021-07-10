@@ -43,63 +43,48 @@ npm start
 
 making a client handle
 
-in client/handles.js
-```
-const handle = new Handle(string:lable,socket:socket.io/socket refference, function:redux action)
-```
-example:
-```
-import openSocket from "socket.io-client";
-import {update} from './slices/test_slice';
-const ENDPOINT = "http://localhost:5001";
+in client/actions.js
 
+```
+//import redux actions
+import {update,update2} from './slices/test_slice';
+
+import openSocket from "socket.io-client";
+const ENDPOINT = "http://localhost:5001";
 const socket = openSocket(ENDPOINT, {
      transports: ['websocket'] // you need to explicitly tell it to use websockets
      }); 
-function Use_handle(){
-     //define handles here
-     const test = new Handle("test",socket,update);// label, ref to socket, and most important: redux action
-     
-     const _handles={
-          //handles go here
-          test,
-          
-          // connect dispatch
-          set_dispatch:(d)=>{
-               console.log("setting dispatch: should hit once!");
-               for(const p in _handles){
-                    if(_handles[p]?.type=="handle"){
-                         _handles[p].set_dispatch(d);
-                    }
-               }
-          }
-     }
-     //returning this object with list of handles, and function to connect dispatch to every handle
-     return _handles;
-}
+
+const Client_handle = require("./Client_handle");
+
+//define actions here - connect server listening strings - to redux actions
+
+// const handle = new Client_handle(<string>listen_label, <socket>socket, <redux action> action);
+
+const test = new Client_handle("test",socket,update);
+const test2 = new Client_handle("test2",socket,update2);
+
+
+
+//you export actions as an object
+const Actions={test,test2};
+export default Actions;
 ```
 useage:
 
 ```
-import Use_handles from "./Handles.js";
+//example component makes a button - and sets a handler to it
+import React,{useEffect } from "react";
+import Use_handles from "../../Handles.js";
 const handles = Use_handles();
 
-function App() {
-     const dispatch = useDispatch();
-     useEffect(() => {
-          const handles = Use_handles();//
-          handles.set_dispatch(dispatch); //sets all the dispatches for events to fire correctly
-          //call individual handles
-          handles.test.listen(); //connects the socket.on function
-          
-          handles.test.send("whatever data you want"); //emit a message to handles.test's server connection
-          
-          //or call listen on all handles
-          handles.listenAll(); 
+function Test() {
+     return ( <div>
+     <button onClick={()=>handles.test2.send("data")}>press</button>
+     </div>);
+}
+export default Test;
 
-     }, []);
-
-    return /*jsx*/
 ```
 
 
