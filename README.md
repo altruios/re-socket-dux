@@ -30,12 +30,12 @@ starting dev:
 two consoles
 
 a:
-```
+```js
 cd server
 npm run dev
   ```
 b:
-```
+```js
 cd client
 npm start
 ```
@@ -45,7 +45,7 @@ making a client handle
 
 in client/actions.js
 
-```
+```js
 //import redux actions
 import {update,update2} from './slices/test_slice';
 
@@ -72,7 +72,7 @@ export default Actions;
 ```
 useage:
 
-```
+```js
 //example component makes a button - and sets a handler to it
 import React,{useEffect } from "react";
 import Use_handles from "../../Handles.js";
@@ -93,7 +93,7 @@ export default Test;
 making a server handle
 
 make a new javascript file in the actions folder: 
-```
+```js
 
 //require the server_handler.
 const Server_handle = require("../server_handle");
