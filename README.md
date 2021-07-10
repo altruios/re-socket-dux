@@ -1,8 +1,8 @@
 # re-socket-dux (alpha build - not yet auto installing or fancy yet)
 
-how to use:
+how to install:
 
-git clone -> npm init. 
+git clone this repo;
 
 adding better automation and more explination soon.
 
