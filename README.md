@@ -3,6 +3,15 @@
 how to install:
 
 git clone this repo;
+in the root project folder
+```
+cd server
+npm install
+cd..
+cd client
+npm install
+```
+
 
 adding better automation and more explination soon.
 
@@ -12,16 +21,7 @@ this is a skeleton of a react project - the goal of which is to be a single one 
 so this has the connecting socket server code wired in.
 (this is still untested on other machines) 
 
-```
-installing should be:
-git clone;
-then:
-cd server
-npm install
-cd..
-cd client
-npm install
-```
+
 
 
 starting dev:
