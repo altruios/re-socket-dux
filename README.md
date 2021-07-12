@@ -75,12 +75,11 @@ useage:
 ```js
 //example component makes a button - and sets a handler to it
 import React,{useEffect } from "react";
-import Use_handles from "../../Handles.js";
-const handles = Use_handles();
+import Handles from "../../Handles.js";
 
 function Test() {
      return ( <div>
-     <button onClick={()=>handles.test2.send("data")}>press</button>
+     <button onClick={()=>Handles.test.send("data")}>press</button>
      </div>);
 }
 export default Test;
