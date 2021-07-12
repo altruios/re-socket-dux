@@ -1,3 +1,4 @@
+const { isAsyncThunkAction } = require("@reduxjs/toolkit");
 
 class Handle { //
      constructor(action,socket,respondsTo){
@@ -7,8 +8,11 @@ class Handle { //
           this.socket=socket; //socket ref
           this.dispatch=null; //set  with the main set_dispatch in the exported object container
           this.respondsTo=respondsTo.type; //action type of redux action
-          console.log(this.respondsTo);
+          console.log(this.respondsTo,"is responds to");
           this.respond=this.respond.bind(this);
+          this.raw_response = respondsTo;
+          console.log("raw_responce is", this.raw_response);
+
        }
 
      set_dispatch(d){
@@ -16,7 +20,11 @@ class Handle { //
      respond(data){
           console.log("responding");
           console.log(data);
-          this.dispatch({type:this.respondsTo,payload:(data)});
+          const regex = /[a-z]\/[a-z]/g
+          console.log(this.respondsTo?.match(regex));
+          this.respondsTo?.match(regex)?
+               this.dispatch({type:this.respondsTo,payload:(data)}):
+               this.raw_response(data);
      }
      listen(){
           if(this.socket){

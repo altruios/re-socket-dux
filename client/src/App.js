@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import main_window from "./pages/main_window/main_window";
-import Use_handles from "./Handles.js";
+import handles from "./Handles.js";
 import { select_test,select_test2 } from "./slices/test_slice";
-const handles = Use_handles();
 
 //endpoinnt to server websocket io
 function App() {
@@ -18,10 +17,7 @@ function App() {
           //connnect
           handles.set_dispatch(dispatch);
           handles.listen_all();
-          //tests
           
-          handles.test.send(state[0])
-          handles.test2.send(state[1])
 
      },[dispatch,state]); //this happens once
      return (

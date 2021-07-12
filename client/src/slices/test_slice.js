@@ -4,6 +4,7 @@ export const testSlice = createSlice({
     initialState:{
           message:"initial state(sent to server)",
           message2:"second state(also sent to server)",
+          message3:"user defined responce",
           responce:false,
           response2:false,
     },

@@ -1,11 +1,15 @@
 import React from "react";
-import Use_handles from "../../Handles.js";
-const handles = Use_handles();
 
-function Test() {
+
+function Test(props) {
+     const handle = props.handle;
+     const data =props.data;
+     const message = props.message;
+
+
      return ( 
           <div>
-               <button onClick={()=>handles.test2.send("does this work")}> does this work?</button>
+               <button onClick={()=>handle.send(data)}>{message}</button>
      </div>
      );
 }
