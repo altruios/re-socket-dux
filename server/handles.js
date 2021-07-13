@@ -6,8 +6,18 @@ const actions=[];
    });
 // handle functions
 const _handles = {
+     name_spaces:["/","/test"], //add name spaces for autolistening
      ...actions,
     //auto listen for all handles
+    listen:(path)=>{
+     for(const p in _handles){
+          if(_handles[p]?.type=="handle"){
+               if(_handles[p].name_space==path){
+                    _handles[p].listen();
+               }
+          }
+     }
+    },
     listen_all:()=>{
           for(const p in _handles){
                if(_handles[p]?.type=="handle"){
@@ -15,10 +25,12 @@ const _handles = {
                }
           }
      },
-     connect_socket:(socket)=>{
+     connect_socket:(path,socket)=>{
           for(const p in _handles){
                if(_handles[p]?.type=="handle"){
-                    _handles[p].connect_socket(socket);
+                    if(_handles[p].name_space==path){
+                         _handles[p].connect_socket(socket);
+                    }
                }          
           }
      }

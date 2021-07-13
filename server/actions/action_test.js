@@ -2,8 +2,9 @@
 const Server_handle = require("../server_handle");
 
 //define handles here:
-const action_test = new Server_handle("test",(data)=>{
-     console.log("handle data heard", data);
+const action_test = new Server_handle("test","/test",(data)=>{
+
+     console.log("handle data heard /test namespace working!", data);
      //or db call or whatever
      const make_some_data = {
           message2:"succes: check server console"

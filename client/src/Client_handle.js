@@ -32,10 +32,14 @@ class Handle { //
           }
      }
      send(data){ 
-          console.log("sending - this.action,data", this.action,data)    
+          console.log("sending - this.action,data", this.action,data)  
+          console.log("this socket is",this.socket);  
+          console.log("namespace is",this.socket.nsp);
+          console.log(data);
           this.socket.emit(this.action,data);
 
      }
+
      set_socket(socket){
           this.socket=socket}
 }

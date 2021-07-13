@@ -1,10 +1,11 @@
 class Server_handle{
-     constructor(action_name,response){
+     constructor(action_name,namespace,response){
           this.type="handle";
           this.respond=this.respond.bind(this);
           this.action=action_name;
           this.socket=null;
           this.response=response;//callback function
+          this.name_space=namespace;
      }
      respond(data){
           const transformed_data = this.response(data);
