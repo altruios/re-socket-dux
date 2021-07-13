@@ -57,12 +57,23 @@ const socket = openSocket(ENDPOINT, {
 
 const Client_handle = require("./Client_handle");
 
+//you can define namespaces here =
+const socket_test = openSocket(`${ENDPOINT}/test`);
+
+
 //define actions here - connect server listening strings - to redux actions
 
-// const handle = new Client_handle(<string>listen_label, <socket>socket, <redux action> action);
 
-const test = new Client_handle("test",socket,update);
+//client_handles can take redux actions or function
+const raw_function_test = (data)=>{window.alert(data)};
+
+
+
+// const handle = new Client_handle(<string>label, <socket>socket, <redux action / function> action);
+
+const test = new Client_handle("test",socket_test,update);
 const test2 = new Client_handle("test2",socket,update2);
+const test2 = new Client_handle("test3",socket,raw_function_test);
 
 
 
@@ -97,14 +108,14 @@ make a new javascript file in the actions folder:
 //require the server_handler.
 const Server_handle = require("../server_handle");
 
-//define some action here: can be anything 
+//define some action here: can be any function 
 
 
-//Server_handle takes a string name - what it listens for, and a callback - for when it hears that data.
-//any data return in the call back will be sent to the client with the same tag
+//Server_handle takes a string name - what it listens for, a string name_space, and a callback - for when it hears that data.
+//any data return in the call back will be sent to the client with the same tag to the same name_space
 
-
-const action_test = new Server_handle("test",(data)=>{
+//const action = new Server_handle(<string>label,<string>name_space,<function>action)
+const action_test = new Server_handle("test","/test",(data)=>{
      console.log("handle data heard", data);
      //or db call or whatever
      const make_some_data = {
