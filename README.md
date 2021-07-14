@@ -73,12 +73,12 @@ const raw_function_test = (data)=>{window.alert(data)};
 
 const test = new Client_handle("test",socket_test,update);
 const test2 = new Client_handle("test2",socket,update2);
-const test2 = new Client_handle("test3",socket,raw_function_test);
+const test3 = new Client_handle("test3",socket,raw_function_test);
 
 
 
 //you export actions as an object
-const Actions={test,test2};
+const Actions={test,test2,test3};
 export default Actions;
 ```
 useage:
