@@ -48,32 +48,29 @@ in client/actions.js
 ```js
 //import redux actions
 import {update,update2} from './slices/test_slice';
-
+//import socket.io and client handle
 import openSocket from "socket.io-client";
-const ENDPOINT = "http://localhost:5001";
-const socket = openSocket(ENDPOINT, {
-     transports: ['websocket'] // you need to explicitly tell it to use websockets
-     }); 
-
 const Client_handle = require("./Client_handle");
 
-//you can define namespaces here =
+
+const ENDPOINT = "http://localhost:5001";
+const socket = openSocket(ENDPOINT); 
+
+//you can define namespaces here
 const socket_test = openSocket(`${ENDPOINT}/test`);
+
+
+
+//client_handles can take redux actions or function like below:
+const raw_function_test = (data)=>{window.alert(data)};
 
 
 //define actions here - connect server listening strings - to redux actions
 
-
-//client_handles can take redux actions or function
-const raw_function_test = (data)=>{window.alert(data)};
-
-
-
 // const handle = new Client_handle(<string>label, <socket>socket, <redux action / function> action);
-
-const test = new Client_handle("test",socket_test,update);
+const test = new Client_handle("test",socket_test,update); //alternative socket
 const test2 = new Client_handle("test2",socket,update2);
-const test3 = new Client_handle("test3",socket,raw_function_test);
+const test3 = new Client_handle("test3",socket,raw_function_test); //alternative reaction
 
 
 
