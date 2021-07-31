@@ -11,27 +11,33 @@ const _handles = {
     //auto listen for all handles
     listen:(path)=>{
      for(const p in _handles){
-          if(_handles[p]?.type=="handle"){
-               if(_handles[p].name_space==path){
-                    _handles[p].listen();
+          if(_handles[p]){
+               if(_handles[p].type=="handle"){
+                    if(_handles[p].name_space==path){
+                         _handles[p].listen();
+                    }
                }
           }
      }
     },
     listen_all:()=>{
           for(const p in _handles){
-               if(_handles[p]?.type=="handle"){
-                    _handles[p].listen();
+               if(_handles[p]){
+                    if(_handles[p].type=="handle"){
+                         _handles[p].listen();
+                    }
                }
           }
      },
      connect_socket:(path,socket)=>{
           for(const p in _handles){
-               if(_handles[p]?.type=="handle"){
-                    if(_handles[p].name_space==path){
-                         _handles[p].connect_socket(socket);
-                    }
-               }          
+               if(_handles){
+                    if(_handles[p].type=="handle"){
+                         if(_handles[p].name_space==path){
+                              _handles[p].connect_socket(socket);
+                         }
+                    }          
+               }
           }
      }
 }
