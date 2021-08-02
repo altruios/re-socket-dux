@@ -1,8 +1,14 @@
 # re-socket-dux (alpha build - not yet auto installing or fancy yet)
 
-how to install:
+### this is a skeleton of a react project - the goal of which is to be a single one step install (like create-react-app)...
+#### ...but with the socket server and client model as basis instead of just the front end;
+ so this has the connecting socket server code wired in.
+ (this is still untested on other machines) 
 
-git clone this repo;
+
+## how to install:
+
+### git clone this repo;
 
 in the root project folder
 ```
@@ -16,32 +22,28 @@ npm install
 
 adding better automation and more explination soon.
 
-this is a skeleton of a react project - the goal of which is to be a single one step install (like create-react-app)...
-...but with the socket server and client model as basis instead of just the front end;
-
-so this has the connecting socket server code wired in.
-(this is still untested on other machines) 
 
 
 
 
-starting dev:
+## spining everything up:
+### (for development enviroment)
 
-two consoles
+#### two consoles
 
-a:
+##### a:
 ```js
 cd server
 npm run dev
   ```
-b:
+##### b:
 ```js
 cd client
 npm start
 ```
 
 
-making a client handle
+### making a client handle
 
 in client/actions.js
 
@@ -97,7 +99,7 @@ export default Test;
 
 
 
-making a server handle
+### making a server handle
 
 make a new javascript file in the actions folder: 
 ```js
